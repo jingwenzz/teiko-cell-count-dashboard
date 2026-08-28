@@ -5,6 +5,7 @@ import sqlite3
 from pathlib import Path
 
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from backend.analysis import (
@@ -13,12 +14,14 @@ from backend.analysis import (
     get_frequency_summary,
     get_responder_comparison_data,
     run_significance_tests,
+    make_boxplot, 
     summarize_baseline_subset,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = ROOT / "cell_counts.db"
 FRONTEND_DIST = ROOT / "frontend" / "dist"
+BOXPLOT_PATH = ROOT / "outputs" / "boxplot.png"
 
 app = FastAPI(title="Teiko Cell Count Dashboard API")
 
@@ -58,6 +61,14 @@ def final_answer():
     conn.close()
     return {"avg_b_cells_melanoma_male_responders_t0": value}
 
+@app.get("/api/boxplot.png")
+def boxplot():
+    if not BOXPLOT_PATH.exists():
+        conn = get_conn()
+        comparison_df = get_responder_comparison_data(conn)
+        conn.close()
+        make_boxplot(comparison_df, BOXPLOT_PATH)
+    return FileResponse(BOXPLOT_PATH, media_type="image/png")
 
 if FRONTEND_DIST.exists():
     app.mount("/", StaticFiles(directory=FRONTEND_DIST, html=True), name="frontend")
