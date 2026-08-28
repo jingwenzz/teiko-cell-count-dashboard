@@ -1,1 +1,7 @@
-# TODO: fastapi, uvicorn, pandas, scipy, statsmodels, matplotlib, seaborn
+fastapi
+uvicorn[standard]
+pandas
+scipy
+statsmodels
+matplotlib
+seaborn

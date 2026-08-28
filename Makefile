@@ -1,10 +1,10 @@
 .PHONY: setup pipeline dashboard
 
 setup:
-	@echo "TODO"
+	pip install -r requirements.txt
 
 pipeline:
-	@echo "TODO"
+	python run_pipeline.py
 
 dashboard:
 	@echo "TODO"
