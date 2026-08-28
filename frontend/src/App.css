@@ -1,0 +1,88 @@
+.dashboard {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  color: #555;
+  margin-top: -0.5rem;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.field {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.field select {
+  margin-left: 0.5rem;
+  font-weight: normal;
+  padding: 0.25rem 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid #eee;
+}
+
+.hint {
+  color: #777;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.error {
+  color: #b00020;
+}
+
+.boxplot {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.significant {
+  color: #0a7a2f;
+  font-weight: 600;
+}
+
+.breakdown {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.breakdown h3 {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.breakdown ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.final-answer {
+  background: #f2f7ff;
+  border: 1px solid #cfe0fb;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
